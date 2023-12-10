@@ -16,7 +16,6 @@ SQLModel.metadata.create_all(engine)
 class Settings(BaseSettings):
     SECRET_KEY: Optional[str] = None
 
-class Settings(BaseSettings):
     DATABASE_URL: Optional[str] = None
 
     async def initialize_database(self):

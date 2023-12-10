@@ -2,7 +2,7 @@
 такие как создание, обновление и удаление событий"""
 from typing import List
 from auth.authenticate import authenticate
-from auth.hash_password import HashPassword
+
 from beanie import PydanticObjectId
 from database.connection import Database
 
