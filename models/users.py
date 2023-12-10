@@ -1,20 +1,21 @@
 """определение модели для пользовательских операций."""
 from pydantic import BaseModel, EmailStr
-from typing import Optional, List
-from models.events import Event
+
+from beanie import Document
 
 
-class User(BaseModel):
+class User(Document):
     email: EmailStr
     password: str
-    events: Optional[List[Event]]
+
+    class Settings:
+        name = "users"
 
     class Config:
         schema_extra = {
             "example": {
                 "email": "fastapi@packt.com",
                 "password": "strong!!!",
-                "events": [],
             }
         }
 
@@ -22,11 +23,3 @@ class User(BaseModel):
 class UserSignIn(BaseModel):
     email: EmailStr
     password: str
-
-    schema_extra = {
-        "example": {
-            "email": "fastapi@packt.com",
-            "password": "strong!!!",
-            "events": [],
-        }
-    }
